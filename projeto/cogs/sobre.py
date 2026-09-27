@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import discord
 from discord.ext import commands
-from Bonkers_DiscordBot.projeto.utils.views import enviar_embed
+from utils.views import enviar_embed
 
 
 def montar_mensagem_sobre() -> str:

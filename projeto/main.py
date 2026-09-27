@@ -56,8 +56,8 @@ async def setup_hook():
     for cog in COGS:
         await bot.load_extension(cog)
 
-    from Bonkers_DiscordBot.projeto.cogs.tickets import PainelTicketView, TicketAbertoView
-    from Bonkers_DiscordBot.projeto.cogs.precos import MenuPrecosView
+    from cogs.tickets import PainelTicketView, TicketAbertoView
+    from cogs.precos import MenuPrecosView
 
     bot.add_view(PainelTicketView())
     bot.add_view(TicketAbertoView())
