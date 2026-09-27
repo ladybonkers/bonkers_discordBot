@@ -1,72 +1,68 @@
-<div align="center">
+# Discord Bot — Traveler Store
 
-# **Discord bot**
+**A Python bot built with discord.py to automate a Genshin Impact service store.**
 
 ![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![discord.py](https://img.shields.io/badge/discord.py-2.4+-5865F2?style=for-the-badge&logo=discord&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)
-
-</div>
-
----
-
-## 📖 About :
-
-I developed this bot to automate services, similar to a webhook.:
-
-- **Ticket** with manual/scripted workflows;
-- **Price list** navigable by category;
-- **Store Ryules, terms and information**;
-- **Personalized Welcome** for new members.
+![Last Commit](https://img.shields.io/github/last-commit/SEU_USUARIO/NOME_DO_REPO?style=for-the-badge&color=8A2BE2)
+![Status](https://img.shields.io/badge/status-active-brightgreen?style=for-the-badge)
 
 ---
 
-## ✨ Features
+## 📖 About
 
-### 🎫 Ticket
-- Panel with button to open a ticket;
-- Choice betwee too types of service **Manual** or **Script**;
-- Selection of **category** and **specific service**;
-- Automatic private channel creation;
-- **Claim Ticket Button** for staff;
-- **Automatic notification** in the staff channel;
-- Close button on the ticket, just staff members can close.
+This bot was developed to automate a Genshin Impact service store — handling everything from welcoming new members to managing a complete ticket system with separate pricing for **Manual** and **Script** services.
 
-### 💵 Price List
-- Interactive menu with a selection dropdown
-- 16 categories about genshin impact
-- Individual user view (ephemeral)
+### ✨ Features
 
-### 📢 Commands (using like a webhook)
-- `!regras` — Server rules
-- `!sobre` — Team informations
-- `!termos` — Terms of service
-- `!compras` — Buying guide
-- `!precos` — Price list
-- `!impulsos` — Booster benefits
-- `!divulgador` — Promotion program
-- `!feedback` — Feedback channel
-- `!painel` — Ticket panel
+#### 🎫 Ticket System
+- Panel with a button to open a ticket
+- Choice between two service types: **Manual** or **Script**
+- Category and specific service selection (with prices pulled from the right table)
+- Automatic private channel creation
+- **Claim Ticket** button for staff (with automatic DM notifications to owners)
+- Automatic notification in the staff channel with the **discounted price** for farmers
+- Close button restricted to staff members
+- Add-member modal for including other staff in the ticket
 
-## How to run!
+#### 💵 Price List
+- Interactive menu with a dropdown
+- **Two separate price tables** (Manual & Script)
+- 16 categories focused on Genshin Impact services
+- Ephemeral view — each user sees only their own selection
+- Support for sub-groups (e.g. "Exploration below 50%" / "above 50%")
 
-### Pré-requisitos
+#### 📢 Information Commands
+- Server rules
+- Team introduction
+- Terms of service
+- Buying guide
+- Booster benefits
+- Promotion program
+- Feedback channel
+- Welcome messages for new members
+
+---
+
+## 🚀 How to Run
+
+### Prerequisites
 - **Python 3.9+**
-- Create a application on [Discord Developer Portal](https://discord.com/developers/applications)
+- A bot application on the [Discord Developer Portal](https://discord.com/developers/applications)
 
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/yourUser/traveler-store-bot.git
+git clone https://github.com/your-username/traveler-store-bot.git
 cd traveler-store-bot
 ```
 
-### 2. I recommend to create a virtual environment
+### 2. (Recommended) Create a virtual environment
 
 ```bash
 python3 -m venv venv
-source venv/bin/activate   # Linux/Mac
-# venv\Scripts\activate    # Windows
+source venv/bin/activate      # Linux / macOS
+# venv\Scripts\activate       # Windows
 ```
 
 ### 3. Install dependencies
@@ -75,11 +71,15 @@ source venv/bin/activate   # Linux/Mac
 pip install -r requirements.txt
 ```
 
-### 4. Create and Configure `.env`
+### 4. Configure the `.env`
 
-Fill it in with your actual values ​​(token, channel IDs, roles, etc.).
+Copy the template and fill it with your real values:
 
-### 5. Run the app
+```bash
+cp .env.example .env
+```
+
+### 5. Run the bot
 
 ```bash
 python3 main.py
@@ -87,7 +87,7 @@ python3 main.py
 
 ---
 
-## ⚙️ Config
+## ⚙️ Configuration
 
 ### Environment variables (`.env`)
 
@@ -105,13 +105,14 @@ python3 main.py
 | `CANAL_NOTIF_MANUAL_ID` | Manual order notification channel ID |
 | `CANAL_NOTIF_SCRIPT_ID` | Script order notification channel ID |
 | `CARGO_FARMER_ID` | Role mentioned in the notification |
-| `DONA_LUMINE_ID` | Lumine's ID (for mentions) |
-| `DONA_AETHER_ID` | Aether ID (mention) |
-| `WEBHOOK_ID` | Optional external logging webhook | 
+| `DONA_LUMINE_ID` | Lumine's user ID (for mentions and DM notifications) |
+| `DONA_AETHER_ID` | Aether's user ID (for mentions and DM notifications) |
+| `LOGSTICKET_ID` | Fallback channel for ticket logs if owner DMs are closed |
+| `WEBHOOK_ID` | Optional external logging webhook |
 
 ### Required bot permissions
 
-Discord Developer Portal → OAuth2 → URL Generator, select:
+In the Discord Developer Portal → OAuth2 → URL Generator, select:
 
 **Scopes:**
 - `bot`
@@ -130,24 +131,27 @@ Discord Developer Portal → OAuth2 → URL Generator, select:
 
 ---
 
-## 📁 Project structure
+## 📁 Project Structure
 
 ```
 traveler-store-bot/
 ├── main.py                    # Entry point
 ├── requirements.txt           # Dependencies
-├── .env.example               # .env template
+├── .env.example               # .env template (safe to commit)
 ├── .gitignore                 # Git-ignored files
 ├── README.md                  # This file
+│
+├── banners/                   # Local images used in embeds
+│   └── boasvindas.jpeg
 │
 ├── cogs/                      # Commands and events
 │   ├── __init__.py
 │   ├── boas_vindas.py         # Welcome messages
-│   ├── compras.py             # Shopping guide
+│   ├── compras.py             # Buying guide
 │   ├── divulgador.py          # Promotion program
-│   ├── feedback.py            # Feedback
+│   ├── feedback.py            # Feedback channel
 │   ├── impulsos.py            # Server boosts
-│   ├── precos.py              # Price list
+│   ├── precos.py              # Price list (Manual + Script)
 │   ├── regras.py              # Rules
 │   ├── sobre.py               # About the team
 │   ├── termos.py              # Terms of service
@@ -165,41 +169,50 @@ traveler-store-bot/
 ## 🎨 Stack
 
 - **[discord.py](https://github.com/Rapptz/discord.py)** — Main library
-- **[python-dotenv](https://github.com/theskumar/python-dotenv)** — Enviroment variables
+- **[python-dotenv](https://github.com/theskumar/python-dotenv)** — Environment variables
 
 ---
 
-## 🧪 Main commands
+## 🧪 Main Commands
 
 | Command | Permission | Description |
 |---|---|---|
 | `!painel` | Manage Server | Posts the ticket panel |
-| `!preços` | Manage Server | Posts the price list |
-| `!regras` | Manage Server | Posts the rules |
+| `!precos` | Manage Server | Posts the price list |
+| `!regras` | Manage Server | Posts the server rules |
 | `!sobre` | Manage Server | Posts the team introduction |
 | `!termos` | Manage Server | Posts the terms of service |
 | `!compras` | Manage Server | Posts the buying guide |
 | `!impulsos` | Manage Server | Posts the server boosts info |
 | `!divulgador` | Manage Server | Posts the promotion program |
 | `!feedback` | Manage Server | Posts the feedback channel |
+| `!add @member` | Staff | Adds a member to the current ticket |
+| `!pedidomanual` | Staff | Sends the current manual order to the farmers' channel |
+| `!pedidoscript` | Staff | Sends the current script order to the farmers' channel |
 
 ---
 
 ## 🔒 Security
 
-- **Never** upload the `.env` file to GitHub — it contains the bot token, if the token leaks, **regenerate it immediately** in the Developer Portal;
-- If you want to upload for a exemple, recommend using something like: `.env.example` as a template (without real values) for other devs.
+- **Never upload the `.env` file to GitHub** — it contains the bot token.
+- If the token leaks, **regenerate it immediately** in the Developer Portal.
+- Use `.env.example` as a template (without real values) for other developers.
+- The `data/` folder (if used for caching) is ignored by git.
 
 ---
 
 ## 📄 License
 
-This project is for the private use. All rights reserved © (Júlia) LadyBonkers
+This project is for **private use**. All rights reserved © (Júlia) LadyBonkers.
 
 ---
 
 <div align="center">
 
-Made by LadyBonkers
+**✦ 𝑻𝒓𝒂𝒗𝒆𝒍𝒆𝒓 𝑺𝒕𝒐𝒓𝒆 ✦**
+
+*Onde sua jornada por Teyvat começa.* 🌙
+
+Made with 💜 by **LadyBonkers**
 
 </div>
