@@ -212,11 +212,11 @@ CATEGORIAS: dict[str, dict] = {
         "label": "Packs Especiais",
         "emoji": "🎁",
         "texto": (
-            "**𝐂𝐨𝐦𝐛𝐨 𝐅𝐥𝐢𝐧𝐬 𝐎𝐔 𝐈𝐧𝐞𝐟𝐟𝐚 — 𝐔𝐩𝐠𝐫𝐚𝐝𝐞 𝐌𝐚́𝐱𝐢𝐦𝐨**\n"
+            "**T Combo Vesna OU Vodyanitsa UPGRADE MÁXIMO**\n"
             "・ Ascensão Lv. 1 → 90\n"
             "・ 2 talentos → Lv. 10\n"
             "・ Build Excelente\n\n"
-            "Valor: **R$70,00**"
+            "Valor: **R$60,00**"
         ),
     },
 }
