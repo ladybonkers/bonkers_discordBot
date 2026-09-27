@@ -209,10 +209,6 @@ This project is for **private use**. All rights reserved © (Júlia) LadyBonkers
 
 <div align="center">
 
-**✦ 𝑻𝒓𝒂𝒗𝒆𝒍𝒆𝒓 𝑺𝒕𝒐𝒓𝒆 ✦**
-
-*Onde sua jornada por Teyvat começa.* 🌙
-
-Made with 💜 by **LadyBonkers**
+Made by **LadyBonkers**
 
 </div>
