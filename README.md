@@ -4,7 +4,7 @@
 
 ![Python](https://img.shields.io/badge/Python-3.9+-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![discord.py](https://img.shields.io/badge/discord.py-2.4+-5865F2?style=for-the-badge&logo=discord&logoColor=white)
-![Last Commit](https://img.shields.io/github/last-commit/ladybonkers/bonkers_discordbot?style=for-the-badge&color=8A2BE2)
+![Last Commit](https://img.shields.io/github/last-commit/ladybonkers/bonkers_discordBot?style=for-the-badge&color=8A2BE2)
 ![Status](https://img.shields.io/badge/status-active-brightgreen?style=for-the-badge)
 
 ---
